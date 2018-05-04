@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "REST backend for AWS",
+  "description": "Declarative REST for AWS",
   "scripts": {
     "dynamo": "node ./src/dynamo-util",
     "create": "npm run create-tables; npm run create-api",
@@ -16,6 +16,9 @@
   "main": "index.js",
   "author": "Richard Dost",
   "license": "MIT",
+  "keywords": [
+    "AWS", "REST", "DynamoDB", "Lambda", "Claudia", "Collection", "Resource", "POST", "PUT", "GET", "DELETE"
+  ],
   "devDependencies": {
     "axios": "^0.18.0",
     "chai": "^4.1.2",

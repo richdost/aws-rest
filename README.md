@@ -4,6 +4,9 @@ Easy to use REST for AWS.
 Just configure your REST collections then create.
 Built on top of Claudia and AWS (DynamoDB, API-Gateway, Lambda).
 
+#### Status
+Working but rough. See todos below.
+
 ## Install
 The usual
 ```javascript
@@ -13,6 +16,24 @@ The usual
 ```
 ## Define your collections
 Edit config.js for your collections.
+
+## AWS Basics
+
+You need to have basic access to AWS. 
+
+#### Credentials
+
+Currently the profile name Claudia is hardcoded. Add it by editing your credentials file.
+
+```bash
+Tiny:aws-rest rd$ cat ~/.aws/credentials 
+[default]
+aws_access_key_id = your-access-key-id
+aws_secret_access_key = very-super-secret
+[claudia]
+aws_access_key_id = key-id-for-claudia-work-with-lesser-power
+aws_secret_access_key = but-still-it-is-secret 
+```
 
 ## Deploy
 ```bash
@@ -37,13 +58,14 @@ npm run destroy
  - Delete to collectionUri/objectId removes a single object.
  - Get to collectionUri gets a bunch of objects. Pagination TODO. Or get to collectionUri/objectId to get one.
 
-## TODO
+## To Do
 Pending work...
 
 #### Most Important
 - Authentication by userId. See https://github.com/claudiajs/claudia-api-builder/blob/master/docs/authorization.md#cognito-authorization
 - pagination for GET of collection
 - GSIs declared in config and used via query parameters
+- Tooling for supporting other projects. Helpful targets etc.
 
 #### Minor
 - Delete to collection with special header to guard against oops
