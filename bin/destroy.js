@@ -1,4 +1,4 @@
-// claudia destroy --profile claudia",
+#! /usr/bin/env node
 
 let dynamoUtil = require('../src/dynamo-util');
 let claudia = require('claudia');

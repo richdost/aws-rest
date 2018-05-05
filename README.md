@@ -14,8 +14,6 @@ The usual
 > cd dynamo-rest
 > npm install
 ```
-## Define your collections
-Edit config.js for your collections.
 
 ## AWS Basics
 
@@ -23,7 +21,7 @@ You need to have basic access to AWS.
 
 #### Credentials
 
-Currently the profile name Claudia is hardcoded. Add it by editing your credentials file.
+Specify AWS profile in config.js. Your profile file might look something like this:
 
 ```bash
 Tiny:aws-rest rd$ cat ~/.aws/credentials 
@@ -35,22 +33,16 @@ aws_access_key_id = key-id-for-claudia-work-with-lesser-power
 aws_secret_access_key = but-still-it-is-secret 
 ```
 
-## Deploy
-```bash
-npm run create
-```
+## Deploy, Test, Clean
+Optionally edit config.js for your collections. Then:
 
-## Test
-First create then test.
 ```bash
-> npm run create
+> create-rest
 > npm test
+> destroy-rest
 ```
+You may have to rerun the tests if there is a slow lambda cold start.
 
-## When done
-```bash
-npm run destroy
-```
 
 ## REST Operations
  - Post an array of objects or a single object to collection URI. Id is injected if missing. Resulting objects will be in response.
