@@ -4,9 +4,9 @@
   "description": "Declarative REST for AWS",
   "scripts": {
     "dynamo": "node ./src/dynamo-util",
-    "create": "npm run create-tables; npm run create-api",
+    "create": "node ./bin/create",
+    "destroy": "node ./bin/destroy",
     "update": "./node_modules/.bin/claudia update --profile claudia",
-    "destroy": "npm run destroy-tables; npm run destroy-api",
     "create-tables": "node ./src/create-tables",
     "destroy-tables": "node ./src/delete-tables",
     "create-api": "./node_modules/.bin/claudia create --region us-east-1 --api-module rest --policies policies --profile claudia",
@@ -17,16 +17,26 @@
   "author": "Richard Dost",
   "license": "MIT",
   "keywords": [
-    "AWS", "REST", "DynamoDB", "Lambda", "Claudia", "Collection", "Resource", "POST", "PUT", "GET", "DELETE"
+    "AWS",
+    "REST",
+    "DynamoDB",
+    "Lambda",
+    "Claudia",
+    "Collection",
+    "Resource",
+    "POST",
+    "PUT",
+    "GET",
+    "DELETE"
   ],
   "devDependencies": {
     "axios": "^0.18.0",
     "chai": "^4.1.2",
-    "claudia": "^4.0.0",
     "mocha": "^5.1.1"
   },
   "dependencies": {
     "aws-sdk": "^2.229.1",
+    "claudia": "^4.0.0",
     "claudia-api-builder": "^4.0.0",
     "uuid": "^3.2.1"
   }
