@@ -2,10 +2,14 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "Declarative REST for AWS",
+  "bin": {
+    "create-rest": "./bin/create.js",
+    "destroy-rest": "./bin/destroy.js"
+  },
   "scripts": {
     "dynamo": "node ./src/dynamo-util",
-    "create": "node ./bin/create",
-    "destroy": "node ./bin/destroy",
+    "create-rest": "node ./bin/create",
+    "destroy-rest": "node ./bin/destroy",
     "update": "./node_modules/.bin/claudia update --profile claudia",
     "create-tables": "node ./src/create-tables",
     "destroy-tables": "node ./src/delete-tables",
