@@ -9,20 +9,12 @@ let fs = require('fs-extra');
 // TODO optionally take file name instead of config (string vs object)
 // TODO tests - will need to use Claudia parameters for where to put/get Claudia.json
 
-// async function doBuild(config){
-//   //await fs.ensureDir('./build/foo');
-//   return Promise.all([
-//     fs.writeJson('./rest/config.json', config),
-//     //fs.copy('./src/rest.js', './build/foo/rest.js'),
-//   ]);
-// }
-
 const CONFIG_FILE = './rest/config.json';
 const CLAUDIA_FILE = './build/claudia.json';
 
 async function create(config) {
   if (!util.isValidConfig(config)) return Promise.reject('create received invalid config parameter');
-  //await doBuild(config);
+  await fs.ensureDir('./build');
   await fs.writeJson(CONFIG_FILE, config);
   util.initAWS(config);
   await util.createTables(config);

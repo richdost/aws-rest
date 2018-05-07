@@ -6,4 +6,4 @@ package-lock.json
 temp
 .vscode
 build
-
+rest/config.json
