@@ -3,10 +3,6 @@ let util = require('../src/util');
 let claudia = require('claudia');
 let fs = require('fs-extra');
 
-//let defaultConfig = require('../config');
-
-// TODO return config with additional props as output
-// TODO optionally take file name instead of config (string vs object)
 // TODO tests - will need to use Claudia parameters for where to put/get Claudia.json
 
 const CONFIG_FILE = './rest/config.json';
@@ -44,8 +40,13 @@ async function destroy() {
   });
 }
 
+
+async function getDeploymentDetails(){
+  return fs.readJson('./build/deployment-details.json', config);
+}
+
 module.exports = {
   create,
   destroy,
-  //doBuild, // exposed for testing only
+  getDeploymentDetails,
 };

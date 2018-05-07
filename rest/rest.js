@@ -153,8 +153,8 @@ api.delete('/{collection}/{id}', request => {
 // If so this can be replaced.
 api.addPostDeployStep('message', (options, lambdaDetails, utils) => {
 	const details = JSON.stringify(lambdaDetails, null, 2);
-	fs.writeFile('./build/create-details.json', details, (err) => {
-		if (err) console.log('Error writing ./build/create-details.json: ' + err);
+	fs.writeFile('./build/deployment-details.json', details, (err) => {
+		if (err) console.log('Error writing ./build/deployment-details.json: ' + err);
 	});
 });
 

@@ -5,7 +5,7 @@ let chai = require('chai');
 let assert = chai.assert;
 let axios = require('axios');
 
-let apiUrl = require('../build/create-details.json').apiUrl;
+let apiUrl = require('../build/deployment-details.json').apiUrl;  // TODO use main.getDeploymentDetails?
 let mindMapUrl = apiUrl + '/mindmap';
 
 // function showResponse(response){

@@ -63,7 +63,6 @@ Pending work...
 #### Minor
 - Delete to collection with special header to guard against oops
 - change role from backend-executor
-- Sometimes create-details.json is empty. Seems like need to wait for something.
 - Add table property to collection entries so the table can have a different name.
 
 ## Trouble-Shooting
