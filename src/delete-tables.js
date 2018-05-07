@@ -1,9 +1,9 @@
 
-
-let dynamoUtil = require('./dynamo-util');
+// TODO deletTables needs parameter
+let util = require('./util');
 
 async function doit(){
-  await dynamoUtil.deleteTables();
+  await util.deleteTables(XXX);
   console.log('-----------');
 }
 

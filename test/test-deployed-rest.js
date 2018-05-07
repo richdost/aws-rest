@@ -4,18 +4,19 @@
 let chai = require('chai');
 let assert = chai.assert;
 let axios = require('axios');
+
 let apiUrl = require('../create-details.json').apiUrl;
 let mindMapUrl = apiUrl + '/mindmap';
 
-function showResponse(response){
-  console.log('--------------');
-  console.log(response.data);
-  console.log(response.status);
-  console.log(response.statusText);
-  console.log(response.headers);
-  console.log(response.config);
-  console.log('--------------');
-}
+// function showResponse(response){
+//   console.log('--------------');
+//   console.log(response.data);
+//   console.log(response.status);
+//   console.log(response.statusText);
+//   console.log(response.headers);
+//   console.log(response.config);
+//   console.log('--------------');
+// }
 
 describe('Simple GETs', function() {
 

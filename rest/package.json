@@ -1,0 +1,16 @@
+{
+  "name": "rest",
+  "version": "1.0.0",
+  "description": "Claudia Lambda code for REST",
+  "main": "rest.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Richard Dost",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.233.1",
+    "claudia-api-builder": "^4.0.0",
+    "uuid": "^3.2.1"
+  }
+}

@@ -1,7 +1,9 @@
-let dynamoUtil = require('./dynamo-util');
+let util = require('./util');
+
+// TODO add parameter to createTables call
 
 async function doit(){
-  await dynamoUtil.createTables();
+  await util.createTables(XXX);
   console.log('-----------');
 }
 

@@ -1,15 +1,8 @@
 #! /usr/bin/env node
 
-let dynamoUtil = require('../src/dynamo-util');
-let claudia = require('claudia');
-let config = require('../config');
+// todo make work with file argument
+// todo maybe combine with destroy for one? e.g. rest create config.js
 
-async function doit() {
-  await dynamoUtil.deleteTables();
-  await claudia.destroy({
-    profile: config.aws.profile || 'claudia',
-  });
-}
-
-doit();
-
+let awsRest = require('../index');
+let config = require('../test/config.js'); // temp because TODO as file parameter
+return awsRest.destroy(config);

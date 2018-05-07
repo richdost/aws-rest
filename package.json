@@ -7,7 +7,6 @@
     "destroy-rest": "./bin/destroy.js"
   },
   "scripts": {
-    "dynamo": "node ./src/dynamo-util",
     "create-rest": "create-rest",
     "destroy-rest": "destroy-rest",
     "update": "./node_modules/.bin/claudia update --profile claudia",
@@ -43,6 +42,7 @@
     "aws-sdk": "^2.229.1",
     "claudia": "^4.0.0",
     "claudia-api-builder": "^4.0.0",
+    "fs-extra": "^6.0.0",
     "uuid": "^3.2.1"
   }
 }
