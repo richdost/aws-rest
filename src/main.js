@@ -42,7 +42,7 @@ async function destroy() {
 
 
 async function getDeploymentDetails(){
-  return fs.readJson('./build/deployment-details.json', config);
+  return fs.readJson('./build/deployment-details.json');
 }
 
 module.exports = {

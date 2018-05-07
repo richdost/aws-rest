@@ -5,4 +5,11 @@
 
 let awsRest = require('../index');
 //let config = require('../test/config.js'); // temp because TODO as file parameter
-return awsRest.getDeploymentDetails();
+awsRest.getDeploymentDetails()
+.then(details => {
+  console.log(JSON.stringify(details,null,2));
+})
+.catch(error => {
+  console.log('Error occured. Perhaps rest was never deployed?');
+  console.log(error);
+});

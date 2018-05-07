@@ -5,12 +5,12 @@
   "bin": {
     "create-rest": "./bin/create.js",
     "destroy-rest": "./bin/destroy.js",
-    "get-rest-details": "./bin/getDeploymentDetails.js"
+    "rest-details": "./bin/getDeploymentDetails.js"
   },
   "scripts": {
     "create-rest": "create-rest",
     "destroy-rest": "destroy-rest",
-    "get-rest-details": "get-rest-details",
+    "rest-details": "rest-details",
     "update": "./node_modules/.bin/claudia update --profile claudia",
     "postinstall": "cd rest; npm i; cd ..",
     "test": "mocha --timeout 15000"

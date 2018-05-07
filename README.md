@@ -64,6 +64,7 @@ Pending work...
 - Delete to collection with special header to guard against oops
 - change role from backend-executor
 - Add table property to collection entries so the table can have a different name.
+- create-rest and destroy-rest bullet-proofing
 
 ## Trouble-Shooting
 - If there is an execution error is javascript during deploy then often the destroy won't clean up everything. Manually clean up in AWS console:
