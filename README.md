@@ -1,5 +1,5 @@
 
-# dynamo-rest
+# aws-rest
 Easy to use REST for AWS.
 Just configure your REST collections then create.
 Built on top of Claudia and AWS (DynamoDB, API-Gateway, Lambda).
@@ -8,11 +8,12 @@ Built on top of Claudia and AWS (DynamoDB, API-Gateway, Lambda).
 Working but rough. See todos below.
 
 ## Install
-The usual
+Note tne oddity at the end. TODO fix.
 ```javascript
-> git clone this package
-> cd dynamo-rest
+> git clone https://github.com/richdost/aws-rest.git
+> cd aws-rest
 > npm install
+> cd rest; npm install # the oddity
 ```
 
 ## AWS Basics
@@ -63,13 +64,12 @@ Pending work...
 - Delete to collection with special header to guard against oops
 - change role from backend-executor
 - Sometimes create-details.json is empty. Seems like need to wait for something.
-- AWS Profile hardcoded currently - should be taken from config
+- Add table property to collection entries so the table can have a different name.
 
 ## Trouble-Shooting
 - If there is an execution error is javascript during deploy then often the destroy won't clean up everything. Manually clean up in AWS console:
   - delete the role
-  - delete the database tables
+  - delete the database tables per the config
   - delete the lambda
-- Sometimes create-details.json is empty. Needs to be fixed. In the meantime just redo.
 
 

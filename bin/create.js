@@ -4,5 +4,17 @@
 // todo maybe combine with destroy for one? e.g. rest create config.js
 
 let awsRest = require('../index');
-let config = require('../test/config.js'); // temp because TODO as file parameter
+let fs = require('fs-extra');
+let configFile = process.argv[2];
+
+let config;
+try {
+  config = fs.readJsonSync(configFile);
+}
+catch (e) {
+  console.error('Error reading JSON config file: ' + configFile);
+  console.log('Usage: create-rest <configFile>');
+  process.exit(1);
+}
+
 return awsRest.create(config);

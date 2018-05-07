@@ -4,11 +4,14 @@
 let chai = require('chai');
 let assert = chai.assert;
 let util = require('../src/util');
-let config = require('./config');
+let fs = require('fs-extra');
+
+let config;
 
 describe (':', () => {
 
   before(() => {
+    config = fs.readJsonSync('./rest/config.json');
     util.initAWS(config);
   });
 
