@@ -10,10 +10,7 @@
     "create-rest": "create-rest",
     "destroy-rest": "destroy-rest",
     "update": "./node_modules/.bin/claudia update --profile claudia",
-    "create-tables": "node ./src/create-tables",
-    "destroy-tables": "node ./src/delete-tables",
-    "create-api": "./node_modules/.bin/claudia create --region us-east-1 --api-module rest --policies policies --profile claudia",
-    "destroy-api": "./node_modules/.bin/claudia destroy --profile claudia",
+    "postinstall": "cd rest; npm i; cd ..",
     "test": "mocha --timeout 15000"
   },
   "main": "index.js",
