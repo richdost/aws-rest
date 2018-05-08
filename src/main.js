@@ -14,7 +14,7 @@ async function create(config) {
   await fs.writeJson(CONFIG_FILE, config);
   util.initAWS(config);
   await util.createTables(config);
-  const result = await claudia.create({
+  const result = await claudia.create({  // https://github.com/claudiajs/claudia/blob/master/docs/create.md
     source: './rest',
     config: CLAUDIA_FILE,
     region: config.aws.region || 'us-east-1',
