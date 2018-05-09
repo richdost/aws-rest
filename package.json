@@ -1,7 +1,7 @@
 {
-  "name": "backend",
+  "name": "aws-rest",
   "version": "1.0.0",
-  "description": "Declarative REST for AWS",
+  "description": "Simple declarative REST for AWS",
   "bin": {
     "create-rest": "./bin/create.js",
     "destroy-rest": "./bin/destroy.js",
