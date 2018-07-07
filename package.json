@@ -8,9 +8,9 @@
     "rest-details": "./bin/getDeploymentDetails.js"
   },
   "scripts": {
-    "create-rest": "create-rest",
-    "destroy-rest": "destroy-rest",
-    "rest-details": "rest-details",
+    "create-rest": "./bin/create.js ./rest/config.json",
+    "rest-details": "./bin/getDeploymentDetails.js",
+    "destroy-rest": "./bin/destroy.js  ./rest/config.json",
     "update": "./node_modules/.bin/claudia update --profile claudia",
     "postinstall": "cd rest; npm i; cd ..",
     "test": "mocha --timeout 15000"

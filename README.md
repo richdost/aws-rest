@@ -8,21 +8,20 @@ Built on top of Claudia and AWS (DynamoDB, API-Gateway, Lambda).
 Working but rough. See todos below.
 
 ## Install
-Note tne oddity at the end. TODO fix.
+
 ```javascript
 > git clone https://github.com/richdost/aws-rest.git
 > cd aws-rest
 > npm install
-> cd rest; npm install # the oddity
 ```
 
 ## AWS Basics
 
 You need to have basic access to AWS. 
 
-#### Credentials
+#### AWS Credentials
 
-Specify AWS profile in config.js. Your profile file might look something like this:
+Your AWS profile file is stored in ~/.aws/credentials and might look something like the below. Note the **claudia** profile.
 
 ```bash
 Tiny:aws-rest rd$ cat ~/.aws/credentials 
@@ -34,13 +33,31 @@ aws_access_key_id = key-id-for-claudia-work-with-lesser-power
 aws_secret_access_key = but-still-it-is-secret 
 ```
 
+## REST Configuration
+Specify your REST collections in ./rest/config.js. By default there is a single REST collection named **mindmap**.
+
+**Currently the profile name of claudia is hardcoded**. Other names will not work. Todo fix.
+
+```json
+{
+  "aws": {
+    "region": "us-east-1",
+    "profile":"claudia"
+  },
+  "collections":{
+    "mindmap": {"ReadCapacityUnits": 3,"WriteCapacityUnits": 3}
+  }
+}
+```
+
 ## Deploy, Test, Clean
-Optionally edit config.js for your collections. Then:
+After optionally editing rest/config.js for your collections:
 
 ```bash
-> create-rest
+> npm run create-rest
+> npm run rest-details
 > npm test
-> destroy-rest
+> npm run destroy-rest
 ```
 You may have to rerun the tests if there is a slow lambda cold start.
 
