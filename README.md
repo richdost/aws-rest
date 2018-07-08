@@ -54,7 +54,7 @@ Specify your REST collections in ./rest/config.js. By default there is a single 
 After optionally editing rest/config.js for your collections:
 
 ```bash
-> npm run create-rest
+> npm run create-rest # produces aws-rest/build/claudia.json and ./build/deploymentDetails.js ?
 > npm run rest-details
 > npm test
 > npm run destroy-rest

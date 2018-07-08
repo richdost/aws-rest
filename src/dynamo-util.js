@@ -1,5 +1,8 @@
 
 let AWS = require('aws-sdk');
+let files = require('./files');
+let isValidConfig = files.isValidConfig;
+
 //let config = require('../config');
 //AWS.config.update({ region: 'us-east-1' }); // DEBUG ONLY
 
@@ -127,9 +130,9 @@ function deleteTable( TableName ){
   });
 }
 
-function isValidConfig(config){
-  return (typeof config == 'object' && typeof config.collections == 'object' );
-}
+// function isValidConfig(config){
+//   return (typeof config == 'object' && typeof config.collections == 'object' );
+// }
 
 // async function doit(){
 //   //return await put();
@@ -143,7 +146,7 @@ function isValidConfig(config){
 
 module.exports = {
   initAWS,
-  isValidConfig,
+  // isValidConfig,
   createTables,
   deleteTables,
   createTable,

@@ -1,6 +1,9 @@
 #! /usr/bin/env node
 
-// todo maybe combine with destroy for one? e.g. rest create config.js
+// Expects config file as second parameter
+// Ends up calling main.create with config object passed as a parameter
+
+// Maybe todo combine with destroy for one? e.g. rest create config.js?
 let awsRest = require('../index');
 let fs = require('fs-extra');
 let path = require('path');
