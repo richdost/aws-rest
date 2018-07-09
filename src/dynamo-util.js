@@ -1,4 +1,6 @@
 
+// There is significant functionality unused here. Use or lose.
+
 let AWS = require('aws-sdk');
 let files = require('./files');
 let isValidConfig = files.isValidConfig;
