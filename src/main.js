@@ -35,7 +35,7 @@ async function create(config) {
     source: files.CLAUDIA_LAMBDA_PROJECT,
     config: files.CLAUDIA_FILE,
     region: config.aws.region || 'us-east-1',
-    version: 'development',
+    version: config.version || 'development',
     'api-module': 'rest',
     policies: files.CLAUDIA_LAMBDA_POLICIES,
     profile: config.aws.profile || 'claudia',
