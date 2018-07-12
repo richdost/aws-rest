@@ -2,7 +2,7 @@
 # aws-rest
 Easy to use REST for AWS.
 Just configure your REST collections then create.
-Built on top of Claudia and AWS (DynamoDB, API-Gateway, Lambda).
+Built on top of Claudia and AWS (DynamoDB, API-Gateway, Lambda, IAM).
 
 #### Status
 Working but rough. See todos below.
@@ -35,6 +35,7 @@ aws_secret_access_key = but-still-it-is-secret
 
 ## REST Configuration
 Specify your REST collections in ./rest/config.js. By default there is a single REST collection named **mindmap**.
+Also specify AWS profile and zone and pipeline version there.
 
 **Currently the profile name of claudia is hardcoded**. Other names will not work. Todo fix.
 
@@ -87,8 +88,10 @@ Pending work...
 
 ## Trouble-Shooting
 - If there is an execution error is javascript during deploy then often the destroy won't clean up everything. Manually clean up in AWS console:
-  - delete the role
+  - delete the role named rest-executor
   - delete the database tables per the config
   - delete the lambda
+  - delete the api-gateway
+  
 
 

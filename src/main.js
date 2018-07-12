@@ -2,11 +2,10 @@
 let claudia = require('claudia');
 let fs = require('fs-extra');
 let files = require('./files');
-let dynamoUtil = require('../src/dynamo-util');
-
+let dynamoUtil = require('./dynamo-util');
+let build = require('../rest/build');
 // TODO tests - will need to use Claudia parameters for where to put/get Claudia.json
 
-console.log('__dirname:' + __dirname);
 
 /*
 Tiny:mind-map rd$ pwd
@@ -25,12 +24,29 @@ Tiny:mind-map rd$
 // const CLAUDIA_LAMBDA_PROJECT = BASE_PATH + 'rest';
 // const CLAUDIA_LAMBDA_POLICIES = BASE_PATH + 'policies';
 
+function showTablesCreated(tableCreationResult){
+  try {
+    let tables = '';
+    tableCreationResult.forEach(t => tables += t.TableDescription.TableName + ' ');
+    console.log('Success creating tables:', tables);
+  }
+  catch (e) {
+    console.warn('Minor error: failed to parse table names for creation message');
+  }
+}
+
 async function create(config) {
   if (!files.isValidConfig(config)) return Promise.reject('create received invalid config parameter');
-  await fs.ensureDir(files.BUILD_DIR);
-  await fs.writeJson(files.CONFIG_FILE, config);
+  //await fs.ensureDir(files.BUILD_DIR); // TODO move to build.js
+  
+  await build.writeJson('config.json', config);  // just for the record
+  
   dynamoUtil.initAWS(config);
-  await dynamoUtil.createTables(config);
+  
+  let tableCreationResult = await dynamoUtil.createTables(config);
+  showTablesCreated(tableCreationResult);
+  await build.writeJson('table-creation-result.json', tableCreationResult);
+
   const result = await claudia.create({  // https://github.com/claudiajs/claudia/blob/master/docs/create.md
     source: files.CLAUDIA_LAMBDA_PROJECT,
     config: files.CLAUDIA_FILE,
@@ -43,6 +59,7 @@ async function create(config) {
     'aws-delay': 5000,
   });
   console.log('success:' + JSON.stringify(result));
+  await build.writeJson('claudia-result.json', result);
   return result;
 }
 
@@ -59,7 +76,8 @@ async function destroy() {
 
 
 async function getDeploymentDetails() {
-  return fs.readJson('./build/deployment-details.json');
+  //return fs.readJson('./build/deployment-details.json');
+  return build.readJson('deployment-details.json');
 }
 
 module.exports = {

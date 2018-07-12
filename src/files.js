@@ -1,4 +1,6 @@
 
+let build = require('../rest/build');
+
 // Shared file and directory definitions
 
 /*
@@ -11,10 +13,11 @@ claudia.json
 Tiny:mind-map rd$
 */
 
+const BUILD_DIR = build.getBuildDir();
+const CLAUDIA_FILE = BUILD_DIR + '/claudia.json';
+
 const BASE_PATH = __dirname + '/../';   // __dirname points to aws/bin
 const CONFIG_FILE = BASE_PATH + 'rest/config.json';
-const BUILD_DIR = BASE_PATH + 'build';
-const CLAUDIA_FILE = BASE_PATH + 'build/claudia.json';
 const CLAUDIA_LAMBDA_PROJECT = BASE_PATH + 'rest';
 const CLAUDIA_LAMBDA_POLICIES = BASE_PATH + 'policies';
 

@@ -93,10 +93,7 @@ function createTable(TableName, ReadCapacityUnits = 1, WriteCapacityUnits = 1){
         console.log("Error creating table", err);
         reject(err);
       }
-      else {
-        console.log("Success creating table", data);
-        resolve(data);
-      }
+      else resolve(data);
     });
   });
 
@@ -125,7 +122,7 @@ function deleteTable( TableName ){
         reject(new Error('Error table in use'));
       }
       else {
-        console.log("Success", data);
+        console.log("Success deleting tables");
         resolve(data);
       }
     });
