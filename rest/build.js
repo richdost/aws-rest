@@ -18,6 +18,12 @@ function getBuildDir(){
   return BUILD_DIR;
 }
 
+// resolves to URL of deployed REST system or rejection if not deployed
+async function getApiUrl(){
+  let claudiaResult = await readJson('claudia-result.json');
+  return claudiaResult.api.url;
+}
+
 async function writeJson(fileName, o){
   await fs.ensureDir(BUILD_DIR);
   return fs.writeJson(addPath(fileName), o);
@@ -32,4 +38,5 @@ module.exports = {
   writeJson,
   readJson,
   getBuildDir,
+  getApiUrl,
 };

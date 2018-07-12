@@ -152,11 +152,11 @@ api.delete('/{collection}/{id}', request => {
 // Saves the API URL so tests can run without coping URL
 // Seems like Claudia should save it somewhere but it is not going to claudia.json.
 // If so this can be replaced.
-api.addPostDeployStep('message', (options, lambdaDetails, utils) => {
-	const details = JSON.stringify(lambdaDetails, null, 2);
-	const fileName = build.getBuildDir() + '/deployment-details.json';
-	fs.writeFile(fileName, details, (err) => {
-		if (err) console.log('Error writing ' + fileName + ': ' + err);
-	});
-});
+// api.addPostDeployStep('message', (options, lambdaDetails, utils) => {
+// 	const details = JSON.stringify(lambdaDetails, null, 2);
+// 	const fileName = build.getBuildDir() + '/deployment-details.json';
+// 	fs.writeFile(fileName, details, (err) => {
+// 		if (err) console.log('Error writing ' + fileName + ': ' + err);
+// 	});
+// });
 
