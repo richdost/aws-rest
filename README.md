@@ -64,6 +64,7 @@ You may have to rerun the tests if there is a slow lambda cold start.
 
 ## Notes
  - The rest directory contains the Claudia sub-project which establishes the lambda functions which implement REST. The contents are bundled up by Claudia in a temporary directory before being sent to AWS.
+ - Build artifacts such as are returned by Claudia and AWS are stored in ~/.aws-rest/build.
 
 ## REST Operations
  - Post an array of objects or a single object to collection URI. Id is injected if missing. Resulting objects will be in response.
